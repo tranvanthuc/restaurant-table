@@ -1,0 +1,31 @@
+.topContent {
+  height: 416px;
+  background-size: cover;
+}
+
+.overlayBg {
+  height: inherit;
+  background-color: rgba(47, 45, 65, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  padding: 1rem 3rem;
+}
+
+.footerBg {
+  margin-top: 3rem;
+  border-radius: 5px;
+  background-position: 50% center;
+  height: 280px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 10rem;
+}
