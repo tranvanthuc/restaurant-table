@@ -2,8 +2,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Movie from 'views/Movie';
 import PageNotFound from 'views/Common/PageNotFound';
 import Home from 'views/Home/index';
+import SearchTable from 'views/SearchTable/index';
 import Login from 'views/Auth/Login';
-import PrivateRoute from './PrivateRoute';
+// import PrivateRoute from './PrivateRoute';
+import DefaultRoute from './DefaultRoute';
 import NotLoggedInRoute from './NotLoggedInRoute';
 
 export default () => (
@@ -12,9 +14,13 @@ export default () => (
       <Route exact path="/movie">
         <Movie />
       </Route>
-      <PrivateRoute layout="auth" exact path="/">
+      <DefaultRoute layout="auth" exact path="/">
         <Home />
-      </PrivateRoute>
+      </DefaultRoute>
+
+      <DefaultRoute layout="auth" exact path="/search">
+        <SearchTable />
+      </DefaultRoute>
 
       <NotLoggedInRoute path="/login">
         <Login />

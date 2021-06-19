@@ -1,0 +1,17 @@
+.header {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btnChooseMap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 100%;
+  height: 70px;
+  border: 1px solid #61bddb;
+  background-size: contain;
+  background-color: #eef8fb;
+}

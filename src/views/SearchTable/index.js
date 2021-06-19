@@ -1,0 +1,217 @@
+import React, { useState } from 'react';
+import ChooseTable from 'views/components/ChooseTable';
+import SearchHeader from 'assets/images/search-header.png';
+import MapFragment from 'assets/images/map-fragment.png';
+import HatChef from 'assets/images/hat-chef.svg';
+import style from './style.module.scss';
+import {
+  Row,
+  Col,
+  Button,
+  Radio,
+  Space,
+  Checkbox,
+  Select,
+  Divider,
+} from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMap, faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
+import {
+  faChair,
+  faMoneyBill,
+  faMapMarkedAlt,
+  faTrophy,
+  faUtensils,
+  faClock,
+} from '@fortawesome/free-solid-svg-icons';
+
+const { Option } = Select;
+
+export default () => {
+  const [diningOption, setDiningOption] = useState(1);
+  const [sortBy, setSortBy] = React.useState(1);
+
+  const sortByMenu = [
+    {
+      label: 'Featured',
+      value: 1,
+    },
+    {
+      label: 'Highest Rated',
+      value: 2,
+    },
+    {
+      label: 'Distance',
+      value: 3,
+    },
+    {
+      label: 'Newest',
+      value: 4,
+    },
+  ];
+
+  function onChangeSortBy(value) {
+    console.log(`selected ${value}`);
+    setSortBy(value);
+  }
+
+  function onChangeDiningOptions(e) {
+    setDiningOption(e.target.value);
+  }
+
+  return (
+    <div>
+      <div
+        className={style.header}
+        style={{ backgroundImage: `url(${SearchHeader})` }}
+      >
+        <ChooseTable />
+      </div>
+
+      <Row justify="center" className="mt-2">
+        <Col className="" span={4}>
+          <div
+            className={style.btnChooseMap}
+            style={{ backgroundImage: `url(${MapFragment})` }}
+          >
+            <Button type="primary">
+              <FontAwesomeIcon icon={faMap} />
+              <span className="ml-1">Map</span>
+            </Button>
+          </div>
+
+          {/* Dining Options */}
+          <div className="border-bottom pb-2">
+            <div className="fw-normal mt-3 mb-1 d-flex align-center">
+              <img
+                className="mr-1"
+                width="20"
+                height="24"
+                src={HatChef}
+                alt="hat-chef"
+              />
+              Dining Options
+            </div>
+
+            <Radio.Group onChange={onChangeDiningOptions} value={diningOption}>
+              <Space direction="vertical">
+                <Radio value={1}>All dining options</Radio>
+                <Radio value={2}>Delivery only</Radio>
+                <Radio value={3}>Takeout only</Radio>
+              </Space>
+            </Radio.Group>
+          </div>
+
+          {/* Seating Options */}
+          <div className="border-bottom pb-2">
+            <div className="fw-normal mt-3 mb-1 d-flex align-center">
+              <FontAwesomeIcon icon={faChair} />
+              <span className="ml-1">Seating Options</span>
+            </div>
+
+            <Space direction="vertical">
+              <Checkbox>Standard</Checkbox>
+              <Checkbox>Outdoor</Checkbox>
+            </Space>
+          </div>
+
+          {/* Price */}
+          <div className="border-bottom pb-2">
+            <div className="fw-normal mt-3 mb-1 d-flex align-center">
+              <FontAwesomeIcon icon={faMoneyBill} />
+              <span className="ml-1">Price</span>
+            </div>
+
+            <div className="mb-1">
+              <Button type="price">$$</Button>
+              <Button type="price">$$$</Button>
+              <Button type="price">$$$$</Button>
+            </div>
+          </div>
+
+          {/* Regions */}
+          <div className="border-bottom pb-2">
+            <div className="fw-normal mt-3 mb-1 d-flex align-center">
+              <FontAwesomeIcon icon={faMapMarkedAlt} />
+              <span className="ml-1">Regions</span>
+            </div>
+
+            <Space direction="vertical">
+              <Checkbox>Bayside</Checkbox>
+              <Checkbox>Bondi Area</Checkbox>
+            </Space>
+          </div>
+
+          {/* Cuisine */}
+          <div className="border-bottom pb-2">
+            <div className="fw-normal mt-3 mb-1 d-flex align-center">
+              <FontAwesomeIcon icon={faUtensils} />
+              <span className="ml-1">Cuisine</span>
+            </div>
+
+            <Space direction="vertical">
+              <Checkbox>American</Checkbox>
+              <Checkbox>Steakhouse</Checkbox>
+              <Checkbox>Seafood</Checkbox>
+              <Checkbox>Italian</Checkbox>
+            </Space>
+          </div>
+
+          {/* Top Rated */}
+          <div className="border-bottom pb-2">
+            <div className="fw-normal mt-3 mb-1 d-flex align-center">
+              <FontAwesomeIcon icon={faTrophy} />
+              <span className="ml-1">Top Rated</span>
+            </div>
+
+            <Space direction="vertical">
+              <Checkbox>Authentic</Checkbox>
+              <Checkbox>Book the Bar</Checkbox>
+              <Checkbox>Cellar</Checkbox>
+              <Checkbox>Cozy</Checkbox>
+            </Space>
+          </div>
+
+          {/* Time */}
+          <div className="border-bottom pb-2">
+            <div className="fw-normal mt-3 mb-1 d-flex align-center">
+              <FontAwesomeIcon icon={faClock} />
+              <span className="ml-1">Time</span>
+            </div>
+
+            <Space direction="vertical">
+              <Checkbox>1,000 Point Times</Checkbox>
+            </Space>
+          </div>
+        </Col>
+
+        <Col className="pa-2 pr-0" span={18}>
+          <Row align="middle">
+            <Col span={12} className="fw-normal">
+              15 restaurants available
+            </Col>
+            <Col span={12} className="d-flex justify-end">
+              <Select
+                defaultValue={sortBy}
+                size="large"
+                style={{ width: 200 }}
+                onChange={onChangeSortBy}
+              >
+                {sortByMenu.map((menu, index) => (
+                  <Option key={index} value={menu.value}>
+                    {menu.label}
+                  </Option>
+                ))}
+              </Select>
+            </Col>
+          </Row>
+
+          <Divider orientation="right" className="fs-2 fw-light">
+            <span className="mr-1">How are Featured results ranked</span>
+            <FontAwesomeIcon icon={faQuestionCircle} />
+          </Divider>
+        </Col>
+      </Row>
+    </div>
+  );
+};
