@@ -3,6 +3,7 @@ import Movie from 'views/Movie';
 import PageNotFound from 'views/Common/PageNotFound';
 import Home from 'views/Home/index';
 import SearchTable from 'views/SearchTable/index';
+import DiningTable from "views/DiningTable";
 import Login from 'views/Auth/Login';
 // import PrivateRoute from './PrivateRoute';
 import DefaultRoute from './DefaultRoute';
@@ -20,6 +21,10 @@ export default () => (
 
       <DefaultRoute layout="auth" exact path="/search">
         <SearchTable />
+      </DefaultRoute>
+
+      <DefaultRoute layout="auth" exact path="/dining">
+        <DiningTable />
       </DefaultRoute>
 
       <NotLoggedInRoute path="/login">
