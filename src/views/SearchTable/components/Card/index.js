@@ -1,10 +1,14 @@
 import React from 'react';
 import style from './style.module.scss';
 import { Typography, Rate, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 const { Title } = Typography;
 
 export default ({ item }) => {
+  const history = useHistory();
+
+  const goDining = () => history.push('/dining');
   return (
     <div className={style.card}>
       <div className={style.cardLeft}>
@@ -32,7 +36,12 @@ export default ({ item }) => {
         </div>
         <div className="mt-1">
           {item.times.map((time, index) => (
-            <Button type="primary" className="mr-1 mb-1" key={index}>
+            <Button
+              type="primary"
+              onClick={goDining}
+              className="mr-1 mb-1"
+              key={index}
+            >
               {time}
             </Button>
           ))}

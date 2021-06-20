@@ -1,20 +1,18 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Movie from 'views/Movie';
+// import Movie from 'views/Movie';
 import PageNotFound from 'views/Common/PageNotFound';
 import Home from 'views/Home/index';
 import SearchTable from 'views/SearchTable/index';
-import DiningTable from "views/DiningTable";
-import Login from 'views/Auth/Login';
+import DiningTable from 'views/DiningTable';
+import Login from 'views/Auth/Login/index';
+import Register from 'views/Auth/Register/index';
 // import PrivateRoute from './PrivateRoute';
 import DefaultRoute from './DefaultRoute';
-import NotLoggedInRoute from './NotLoggedInRoute';
+// import NotLoggedInRoute from './NotLoggedInRoute';
 
 export default () => (
   <Router>
     <Switch>
-      <Route exact path="/movie">
-        <Movie />
-      </Route>
       <DefaultRoute layout="auth" exact path="/">
         <Home />
       </DefaultRoute>
@@ -27,9 +25,13 @@ export default () => (
         <DiningTable />
       </DefaultRoute>
 
-      <NotLoggedInRoute path="/login">
+      <DefaultRoute layout="auth" path="/login">
         <Login />
-      </NotLoggedInRoute>
+      </DefaultRoute>
+
+      <DefaultRoute layout="auth" path="/register">
+        <Register />
+      </DefaultRoute>
 
       <Route path="*" status={404}>
         <PageNotFound />

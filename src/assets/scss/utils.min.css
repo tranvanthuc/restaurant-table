@@ -331,12 +331,21 @@
   padding-left:3rem!important
 }
 
+/* CURSOR */
+.cursor-pointer {
+  cursor: pointer;
+}
+
 /*TEXT*/
 .text-center{
   text-align:center!important
 }
 .text-no-wrap{
   white-space:nowrap!important
+}
+
+.text-end {
+  text-align: end !important;
 }
 
 .text-white {
