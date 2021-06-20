@@ -24,6 +24,7 @@ import {
   faUtensils,
   faClock,
 } from '@fortawesome/free-solid-svg-icons';
+import CardList from './components/CardList';
 
 const { Option } = Select;
 
@@ -210,6 +211,8 @@ export default () => {
             <span className="mr-1">How are Featured results ranked</span>
             <FontAwesomeIcon icon={faQuestionCircle} />
           </Divider>
+
+          <CardList />
         </Col>
       </Row>
     </div>
