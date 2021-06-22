@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from 'assets/images/logo.png';
 import style from './style.module.scss';
 import {
@@ -14,6 +14,15 @@ import Menu from '../Menu';
 
 export default () => {
   const history = useHistory();
+  const [visible, setVisible] = useState(false);
+
+  const hidePopover = () => {
+    setVisible(false);
+  };
+
+  const handleVisible = (v) => {
+    setVisible(v);
+  };
 
   const goHome = () => history.push('/');
   const goLogin = () => history.push('/login');
@@ -38,7 +47,13 @@ export default () => {
         </div>
       </div>
       <div className={style.headerRightMobile}>
-        <Popover placement="bottomRight" content={Menu} trigger="click">
+        <Popover
+          visible={visible}
+          placement="bottomRight"
+          onVisibleChange={handleVisible}
+          content={() => <Menu hide={hidePopover} />}
+          trigger="click"
+        >
           <Button type="text">
             <FontAwesomeIcon icon={faBars} />
           </Button>

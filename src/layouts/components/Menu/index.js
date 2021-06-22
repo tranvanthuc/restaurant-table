@@ -3,10 +3,16 @@ import { Button, Space } from 'antd';
 import { useHistory } from 'react-router-dom';
 import style from './style.module.scss';
 
-export default () => {
+export default ({ hide }) => {
   const history = useHistory();
-  const goLogin = () => history.push('/login');
-  const goRegister = () => history.push('/register');
+  const goLogin = () => {
+    history.push('/login');
+    hide();
+  };
+  const goRegister = () => {
+    history.push('/register');
+    hide();
+  };
 
   return (
     <div className={style.menu}>
