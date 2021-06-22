@@ -5,7 +5,7 @@ import ImageTable01 from 'assets/images/table01.png';
 import ImageTable02 from 'assets/images/table02.png';
 import ImageTable03 from 'assets/images/table03.png';
 
-import { Row, Col, Button, Descriptions, Table } from 'antd';
+import { Row, Col, Button, Descriptions, Table, Space } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
@@ -45,11 +45,11 @@ const renderContent = (value, row, index) => {
 const renderQuantity = (value, row, index) => {
   const obj = {
     children: (
-      <div>
+      <Space>
         <Button size="small">-</Button>
-        <span className="px-1">{value}</span>
+        <span>{value}</span>
         <Button size="small">+</Button>
-      </div>
+      </Space>
     ),
     props: {},
   };
@@ -73,7 +73,7 @@ const renderTotalPrice = (text, row, index) => {
 
 export default () => {
   return (
-    <div className="containre">
+    <div className="container">
       <div
         className={style.header}
         style={{ backgroundImage: `url(${SearchHeader})` }}
@@ -81,8 +81,8 @@ export default () => {
         <h1 className="mb-0 text-white font-size">Dining Table</h1>
       </div>
 
-      <Row justify="center" className="mt-4">
-        <Col span={14}>
+      <Row justify="center" className="mt-4 pb-4">
+        <Col xs={20} sm={20} md={12} lg={12} xl={14} className="mt-2">
           <Descriptions title="" layout="vertical" bordered>
             <Descriptions.Item label="Restaurants Details" span={1}>
               A quality and relaxing rural country pub.
@@ -97,7 +97,7 @@ export default () => {
 
           <Row justify="space-between" className="mt-4">
             <Col span={8}>
-              <div>
+              <div className={style['table-container']}>
                 <img
                   className={style['image-table']}
                   src={ImageTable02}
@@ -106,7 +106,7 @@ export default () => {
               </div>
             </Col>
             <Col span={8}>
-              <div>
+              <div className={style['table-container']}>
                 <img
                   className={style['image-table']}
                   src={ImageTable01}
@@ -115,7 +115,7 @@ export default () => {
               </div>
             </Col>
             <Col span={8}>
-              <div>
+              <div className={style['table-container']}>
                 <img
                   className={style['image-table']}
                   src={ImageTable03}
@@ -124,7 +124,7 @@ export default () => {
               </div>
             </Col>
             <Col span={8}>
-              <div>
+              <div className={style['table-container']}>
                 <img
                   className={style['image-table']}
                   src={ImageTable02}
@@ -133,7 +133,7 @@ export default () => {
               </div>
             </Col>
             <Col span={8}>
-              <div>
+              <div className={style['table-container']}>
                 <img
                   className={style['image-table']}
                   src={ImageTable01}
@@ -142,7 +142,7 @@ export default () => {
               </div>
             </Col>
             <Col span={8}>
-              <div>
+              <div className={style['table-container']}>
                 <img
                   className={style['image-table']}
                   src={ImageTable03}
@@ -151,8 +151,28 @@ export default () => {
               </div>
             </Col>
           </Row>
+
+          <div className="mt-4">
+            <div className="d-flex">
+              <div
+                className={`${style['seat']} ${style['seat-reserved']}`}
+              ></div>
+              <div className="ml-1">Reserved</div>
+            </div>
+            <div className="d-flex mt-2">
+              <div className={`${style['seat']}`}></div>
+              <div className="ml-1">Available</div>
+            </div>
+          </div>
         </Col>
-        <Col span={8} className="pl-2">
+        <Col
+          xs={20}
+          sm={20}
+          md={10}
+          lg={10}
+          xl={8}
+          className={style['menu'] + ' mt-2'}
+        >
           <Table dataSource={data} pagination={false} bordered>
             <ColumnGroup title="Menu: All day">
               <Column
@@ -181,20 +201,6 @@ export default () => {
               />
             </ColumnGroup>
           </Table>
-          <div className="mt-4">
-            <div className="d-flex">
-              <div
-                className={`${style['seat']} ${style['seat-reserved']}`}
-              ></div>
-              <div className="ml-1">Reserved</div>
-            </div>
-            <div className="d-flex mt-2">
-              <div
-                className={`${style['seat']}`}
-              ></div>
-              <div className="ml-1">Available</div>
-            </div>
-          </div>
         </Col>
       </Row>
     </div>
