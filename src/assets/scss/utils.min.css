@@ -344,6 +344,10 @@
   white-space:nowrap!important
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .text-end {
   text-align: end !important;
 }
@@ -634,3 +638,57 @@ height: auto !important;
 .fs-6{
   font-size: 32px !important;
 }
+
+.h1 {
+  font-size: 2.5rem !important;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: 2rem !important;
+  font-weight: 600;
+}
+
+.h3 {
+  font-size: 1.5rem!important;
+  font-weight: 500;
+}
+
+
+@media screen and (min-width: 320px) {
+  .h1 { 
+    font-size: 1.3rem !important;
+  }
+  .h2 { 
+    font-size: 1.2rem !important;
+  }
+  .h3 {
+    font-size: 1rem !important;
+  }
+}
+@media screen and (min-width: 576px) {
+  .h1 { 
+    font-size: 1.8rem !important;
+  }
+  .h2 { 
+    font-size: 1.5rem !important;
+  }
+
+  .h3 {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .h1 { 
+    font-size: 2rem !important;
+  }
+  .h2 { 
+    font-size: 1.75rem !important;
+  }
+  .h3 {
+    font-size: 1.5rem !important;
+  }
+} 
+
+

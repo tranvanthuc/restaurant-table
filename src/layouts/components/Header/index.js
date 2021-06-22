@@ -6,8 +6,11 @@ import {
   BellOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Popover } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Menu from '../Menu';
 
 export default () => {
   const history = useHistory();
@@ -24,7 +27,7 @@ export default () => {
           <EnvironmentOutlined />
         </div>
       </div>
-      <div className={style.headerRight}>
+      <div className={style.headerRightWeb}>
         <Button className="mr-2" type="primary" onClick={goLogin}>
           Sign in
         </Button>
@@ -33,6 +36,13 @@ export default () => {
         <div className="border-left">
           <Button type="link" shape="circle" icon={<SearchOutlined />} />
         </div>
+      </div>
+      <div className={style.headerRightMobile}>
+        <Popover placement="bottomRight" content={Menu} trigger="click">
+          <Button type="text">
+            <FontAwesomeIcon icon={faBars} />
+          </Button>
+        </Popover>
       </div>
     </div>
   );

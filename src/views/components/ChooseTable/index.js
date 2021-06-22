@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import { SearchOutlined } from '@ant-design/icons';
-import { DatePicker, TimePicker, Select, Input, Button } from 'antd';
+import { DatePicker, TimePicker, Select, Input, Button, Row, Col } from 'antd';
 import { listPeople } from 'constants/index';
+import style from './style.module.scss';
 
 const { Option } = Select;
 
@@ -28,39 +29,88 @@ export default ({ onClick }) => {
   }
 
   return (
-    <div className="d-flex align-center">
-      <DatePicker value={date} size="large" onChange={onChangeDate} />
-      <TimePicker
-        value={time}
-        size="large"
-        onChange={onChangeTime}
-        minuteStep={30}
-        format={formatTime}
-        showNow={false}
-      />
-      <Select
-        defaultValue={people}
-        size="large"
-        style={{ width: 120 }}
-        onChange={onChangePeople}
+    <Row gutter={[8, 8]} justify="center" align="middle" className="w-100">
+      <Col
+        xl={{ span: 16 }}
+        lg={{ span: 16 }}
+        md={{ span: 16 }}
+        xs={{ span: 24 }}
       >
-        {listPeople.map((people, index) => (
-          <Option key={index} value={people.value}>
-            {people.label}
-          </Option>
-        ))}
-      </Select>
+        <Row gutter={[8, 8]} justify="center">
+          <Col
+            xl={{ span: 4 }}
+            lg={{ span: 8 }}
+            md={{ span: 8 }}
+            xs={{ span: 20 }}
+          >
+            <DatePicker
+              className="w-100"
+              value={date}
+              size="large"
+              onChange={onChangeDate}
+            />
+          </Col>
+          <Col
+            xl={{ span: 4 }}
+            lg={{ span: 8 }}
+            md={{ span: 8 }}
+            xs={{ span: 20 }}
+          >
+            <TimePicker
+              className="w-100"
+              value={time}
+              size="large"
+              onChange={onChangeTime}
+              minuteStep={30}
+              format={formatTime}
+              showNow={false}
+            />
+          </Col>
+          <Col
+            xl={{ span: 4 }}
+            lg={{ span: 8 }}
+            md={{ span: 8 }}
+            xs={{ span: 20 }}
+          >
+            <Select
+              defaultValue={people}
+              size="large"
+              onChange={onChangePeople}
+              className="w-100"
+            >
+              {listPeople.map((people, index) => (
+                <Option key={index} value={people.value}>
+                  {people.label}
+                </Option>
+              ))}
+            </Select>
+          </Col>
+          <Col
+            xl={{ span: 9 }}
+            lg={{ span: 16 }}
+            md={{ span: 16 }}
+            xs={{ span: 20 }}
+          >
+            <Input
+              className="w-100"
+              size="large"
+              placeholder="Location, Restaurant, or Cuisine"
+              prefix={<SearchOutlined />}
+            />
+          </Col>
 
-      <Input
-        style={{ width: 300 }}
-        className="mx-2"
-        size="large"
-        placeholder="Location, Restaurant, or Cuisine"
-        prefix={<SearchOutlined />}
-      />
-      <Button size="large" type="primary" onClick={onClick}>
-        Let’s go
-      </Button>
-    </div>
+          <Col
+            xl={{ span: 3 }}
+            lg={{ span: 8 }}
+            md={{ span: 8 }}
+            xs={{ span: 20 }}
+          >
+            <Button block size="large" type="primary" onClick={onClick}>
+              Let’s go
+            </Button>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
   );
 };

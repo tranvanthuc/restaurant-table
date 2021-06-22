@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './style.module.scss';
-import { Typography, Rate, Button } from 'antd';
+import { Typography, Rate, Button, Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 const { Title } = Typography;
@@ -10,12 +10,21 @@ export default ({ item }) => {
 
   const goDining = () => history.push('/dining');
   return (
-    <div className={style.card}>
-      <div className={style.cardLeft}>
-        <img src={item.img} alt={item.name} />
-      </div>
+    <Row
+      gutter={[{ xl: 16, lg: 16, md: 12, sm: 16, xs: 16 }, { xs: 8 }]}
+      className={style.card}
+      justify="center"
+    >
+      <Col xl={{ span: 5 }} lg={{ span: 6 }} md={{ span: 7 }} xs={{ span: 22 }}>
+        <img src={item.img} alt={item.name} className="border-radius-1 w-100" />
+      </Col>
 
-      <div className={style.cardRight}>
+      <Col
+        xl={{ span: 19 }}
+        lg={{ span: 18 }}
+        md={{ span: 17 }}
+        xs={{ span: 22 }}
+      >
         <Title level={4} className="mb-0">
           {item.name}
         </Title>
@@ -46,7 +55,7 @@ export default ({ item }) => {
             </Button>
           ))}
         </div>
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 };

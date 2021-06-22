@@ -3,7 +3,6 @@ import Card from '../Card';
 import { listTables } from 'constants/index';
 
 export default () => {
-  console.log(listTables);
   return (
     <div>
       {listTables.map((item, index) => (

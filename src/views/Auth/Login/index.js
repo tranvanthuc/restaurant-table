@@ -11,16 +11,25 @@ import {
 
 const layout = {
   labelCol: {
-    span: 6,
+    xl: { span: 6 },
+    lg: { span: 6 },
+    md: { span: 6 },
+    xs: { span: 6 },
   },
   wrapperCol: {
-    span: 18,
+    xl: { span: 18 },
+    lg: { span: 18 },
+    md: { span: 18 },
+    xs: { span: 18 },
   },
 };
 const tailLayout = {
   wrapperCol: {
-    offset: 6,
-    span: 18,
+    xl: { offset: 6, span: 18 },
+    lg: { offset: 6, span: 18 },
+    md: { offset: 6, span: 18 },
+    sm: { offset: 6, span: 18 },
+    xs: { offset: 0, span: 24 },
   },
 };
 
@@ -39,10 +48,14 @@ const Index = () => {
     <Row
       align="middle"
       justify="center"
-      className="h-100vh"
-      style={{ backgroundColor: '#efefef' }}
+      style={{ backgroundColor: '#efefef', minHeight: 'calc(100vh - 56px)' }}
     >
-      <Col span={9}>
+      <Col
+        xl={{ span: 9 }}
+        lg={{ span: 12 }}
+        md={{ span: 16 }}
+        xs={{ span: 22 }}
+      >
         <Card>
           <Title className="text-center" level={3}>
             Login

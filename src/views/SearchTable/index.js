@@ -61,7 +61,7 @@ export default () => {
   }
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div
         className={style.header}
         style={{ backgroundImage: `url(${SearchHeader})` }}
@@ -69,8 +69,17 @@ export default () => {
         <ChooseTable />
       </div>
 
-      <Row justify="center" className="mt-2">
-        <Col className="" span={4}>
+      <Row
+        justify="center"
+        className="mt-2 overflow-x-hidden"
+        gutter={[16, 16]}
+      >
+        <Col
+          xl={{ span: 4 }}
+          lg={{ span: 5 }}
+          md={{ span: 6 }}
+          xs={{ span: 22 }}
+        >
           <div
             className={style.btnChooseMap}
             style={{ backgroundImage: `url(${MapFragment})` }}
@@ -186,12 +195,17 @@ export default () => {
           </div>
         </Col>
 
-        <Col className="pa-2 pr-0" span={18}>
-          <Row align="middle">
-            <Col span={12} className="fw-normal">
+        <Col
+          xl={{ span: 18 }}
+          lg={{ span: 17 }}
+          md={{ span: 17 }}
+          sm={{ span: 24 }}
+        >
+          <Row align="middle" justify="center">
+            <Col span={11} className="fw-normal">
               15 restaurants available
             </Col>
-            <Col span={12} className="d-flex justify-end">
+            <Col span={11} className="d-flex justify-end">
               <Select
                 defaultValue={sortBy}
                 size="large"

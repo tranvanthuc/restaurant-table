@@ -9,6 +9,7 @@ import LocationDirectionSvg from 'assets/images/location-direction.svg';
 import { places } from 'constants/index';
 import ChooseTable from 'views/components/ChooseTable';
 import { useHistory } from 'react-router-dom';
+import clsx from 'clsx';
 
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
@@ -27,20 +28,34 @@ export default () => {
         style={{ backgroundImage: `url(${BgHeader})` }}
       >
         <div className={style.overlayBg}>
-          <Title style={{ color: 'white' }}>
-            Find your table for any occasion
-          </Title>
+          <Row justify="center" className="w-100 mb-1">
+            <Col
+              xl={{ span: 24 }}
+              lg={{ span: 20 }}
+              md={{ span: 16 }}
+              xs={{ span: 23 }}
+            >
+              <Title
+                style={{ color: 'white' }}
+                className={clsx('h1 text-center')}
+              >
+                Find your table for any occasion
+              </Title>
+            </Col>
+          </Row>
           <ChooseTable onClick={redirectSearch} />
         </div>
         {/* top */}
         <div className={style.content}>
-          <p className="border-bottom py-2">
-            It looks like you're in North Central Coast. Not correct?{' '}
-            <img src={LocationDirectionSvg} />{' '}
-            <a href="#" color="primary">
-              Get current location
-            </a>
-          </p>
+          <div className="border-bottom py-2 d-flex flex-wrap">
+            <p>It looks like you're in North Central Coast. Not correct? </p>
+            <div>
+              <img src={LocationDirectionSvg} />{' '}
+              <a href="#" color="primary">
+                Get current location
+              </a>
+            </div>
+          </div>
           <Carousel title="Recently viewed" />
           <Carousel title="Popular restaurants in North Central Coast" />
           <Carousel title="Top Cuisines near North Central Coast" />
@@ -56,7 +71,10 @@ export default () => {
                   <Col
                     key={index}
                     className="gutter-row mt-3 fw-normal "
-                    span={6}
+                    xl={{ span: 6 }}
+                    md={{ span: 8 }}
+                    sm={{ span: 12 }}
+                    xs={{ span: 12 }}
                   >
                     <div>{place.label}</div>
                   </Col>
@@ -65,11 +83,14 @@ export default () => {
             </TabPane>
             <TabPane tab="International cities/regions" key="2">
               <Row gutter={16}>
-                {places.map((place, index) => (
+                {places.slice(5, 17).map((place, index) => (
                   <Col
                     key={index}
                     className="gutter-row mt-3 fw-normal "
-                    span={6}
+                    xl={{ span: 6 }}
+                    md={{ span: 8 }}
+                    sm={{ span: 12 }}
+                    xs={{ span: 12 }}
                   >
                     <div>{place.label}</div>
                   </Col>
