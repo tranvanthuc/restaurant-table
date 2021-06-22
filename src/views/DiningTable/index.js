@@ -82,7 +82,7 @@ export default () => {
       </div>
 
       <Row justify="center" className="mt-4 pb-4">
-        <Col xs={20} sm={20} md={12} lg={12} xl={14} className="mt-2">
+        <Col xs={22} sm={20} md={11} lg={12} xl={14} className="mt-2">
           <Descriptions title="" layout="vertical" bordered>
             <Descriptions.Item label="Restaurants Details" span={1}>
               A quality and relaxing rural country pub.
@@ -166,9 +166,9 @@ export default () => {
           </div>
         </Col>
         <Col
-          xs={20}
+          xs={22}
           sm={20}
-          md={10}
+          md={11}
           lg={10}
           xl={8}
           className={style['menu'] + ' mt-2'}
