@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from 'assets/images/logo.png';
 import style from './style.module.scss';
+import { Typography } from 'antd';
 import {
   EnvironmentOutlined,
   BellOutlined,
@@ -11,6 +13,8 @@ import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Menu from '../Menu';
+
+const { Title } = Typography;
 
 export default () => {
   const history = useHistory();
@@ -31,7 +35,10 @@ export default () => {
   return (
     <div className={style.header}>
       <div className={style.headerLeft}>
-        <img src={Logo} onClick={goHome} className="cursor-pointer" />
+        {/* <img src={Logo} onClick={goHome} className="cursor-pointer" /> */}
+        <Link to="/" className="title pb-0">
+          <Title level={5} className="mb-0" type="danger">Food 'N Seat</Title>
+        </Link>
         <div className={style.iconPlace}>
           <EnvironmentOutlined />
         </div>
