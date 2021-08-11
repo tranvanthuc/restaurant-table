@@ -62,7 +62,7 @@ export default () => {
 
           {/* tabs */}
           <Title className="mt-6 mb-1" level={3}>
-            Explore OpenTable
+            Explore Food 'N Seat
           </Title>
           <Tabs>
             <TabPane tab="National cities/regions" key="1">
@@ -112,7 +112,7 @@ export default () => {
             </Title>
             <Text className="fw-normal text-white text-center">
               Join the more than 50,000 restaurants which fill seats and manage
-              reservations with OpenTable.
+              reservations with Food 'N Seat.
             </Text>
             <Button size="large" type="primary" className="px-7 mt-4">
               Learn more
@@ -120,7 +120,7 @@ export default () => {
           </div>
           {/* end bg-footer */}
           <div className="my-2 text-center fw-normal">
-            Favorite restaurant not yet on OpenTable?{' '}
+            Favorite restaurant not yet on Food 'N Seat?{' '}
             <span className="text-primary">Suggest a restaurant.</span>
           </div>
         </div>
