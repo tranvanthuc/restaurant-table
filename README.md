@@ -14,6 +14,7 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 # Structure source
+```bash
 ├── src
 │   ├── assets
 │   │   ├── images              // define static image used in project
@@ -94,3 +95,4 @@ You will also see any lint errors in the console.
 ├── package-lock.json
 ├── package.json
 └── yarn.lock
+```
