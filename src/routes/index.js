@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import Movie from 'views/Movie';
+import Movie from 'views/Movie';
 import PageNotFound from 'views/Common/PageNotFound';
 import Home from 'views/Home/index';
 import SearchTable from 'views/SearchTable/index';
@@ -31,6 +31,10 @@ export default () => (
 
       <DefaultRoute layout="auth" path="/register">
         <Register />
+      </DefaultRoute>
+
+      <DefaultRoute layout="auth" path="/movie">
+        <Movie />
       </DefaultRoute>
 
       <Route path="*" status={404}>

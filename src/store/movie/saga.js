@@ -1,6 +1,6 @@
 import { call, put, takeLatest, delay } from 'redux-saga/effects';
 import MovieService from 'services/MovieService';
-import { GET_LIST_MOVIES_REQUEST } from 'store/movie/type';
+import { GET_LIST_MOVIES_REQUEST } from 'store/movie/actions';
 import { getListMoviesFailure, getListMoviesSuccess } from './actions';
 
 export function* getListMovies() {

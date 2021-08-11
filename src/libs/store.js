@@ -9,7 +9,7 @@ export const defaultAction = (type, payload = null) => ({
   payload,
 });
 
-export const defaultMutationRquest = (state) => ({
+export const defaultMutationRequest = (state) => ({
   ...state,
   ...DEFAULT_REQUEST,
 });
