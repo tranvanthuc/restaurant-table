@@ -2,7 +2,10 @@
 
 `yarn` or `npm install`
 
+
 ## Run source
+
+Copy `.env.example` to `.env`
 
 `yarn start` or `npm run start`
 In the project directory, you can run:

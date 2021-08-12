@@ -3,7 +3,7 @@ import MovieService from 'services/MovieService';
 import { GET_LIST_MOVIES_REQUEST } from 'store/movie/actions';
 import { getListMoviesFailure, getListMoviesSuccess } from './actions';
 
-export function* getListMovies() {
+function* getListMovies() {
   try {
     const { data } = yield call(MovieService.getList);
     yield delay(2000);
