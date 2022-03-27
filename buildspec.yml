@@ -20,3 +20,4 @@ artifacts:
     - package.json
     - appspec.yml
     - scripts/**/*
+    - craco.config.js
