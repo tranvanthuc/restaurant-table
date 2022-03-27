@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #!/bin/bash
-cd /home/ec2-user/server/src
+cd /app
 npm start
 pm2 start npm --name "covidapp" -- start
 pm2 startup
